@@ -18,4 +18,11 @@
 
 .searchIcon {
     height: 40px;
+    cursor: pointer;
+}
+
+.input {
+    outline: none;
+    width: 80%;
+    border: none;
 }

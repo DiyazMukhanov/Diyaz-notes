@@ -6,6 +6,7 @@ const Search: React.FC = (props) => {
         <div className={styles.searchContainer}>
         <div className={styles.search}>
         <img className={styles.searchIcon} src={search} alt='search'/>
+            <input className={styles.input}/>
         </div>
     </div>);
 }
