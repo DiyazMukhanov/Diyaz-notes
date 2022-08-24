@@ -3,5 +3,18 @@
     background: orange;
     max-width: 300px;
     border-radius: 20px;
-    padding: 10px;
+    padding: 10px 20px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.note input {
+    border-radius: 20px;
+    background: #ffff66;
+}
+
+.button {
+    border-radius: 20px;
+    margin-top: 5px;
 }

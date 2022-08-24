@@ -30,11 +30,11 @@ const Note: React.FC<Props> = (props) => {
     }
 
     return (<div className={styles.note}>
-       <h1>Title: {props.title}</h1>
-        {/* @ts-ignore */}<p>Mote: {props.text}</p>
-        {/* @ts-ignore */}<input id='title' onChange={updateHandler}/>
-        <input id='text' onChange={updateHandler}/>
-        <button onClick={removeNoteHandler}>Удалить заметку</button>
+       <h1>{props.title}</h1>
+        {/* @ts-ignore */}<p>{props.text}</p>
+        {/* @ts-ignore */}<input id='title' onChange={updateHandler} placeholder='Меняйте название'/>
+        <input id='text' onChange={updateHandler} placeholder='Меняйте текст'/>
+        <button onClick={removeNoteHandler} className={styles.button}>Удалить заметку</button>
     </div>)
 }
 
