@@ -16,11 +16,19 @@ const NotesContext = React.createContext({
     ],
     createNote: (note: any) => {},
     deleteNote: (id: number) => {},
-    updateNote: (id: number, title: string, text: string) => {}
+    updateNote: (id: number, title: string, text: string) => {},
+    searchNote: (title: string) => {},
+    removeFoundNote: () => {},
+    foundNote: {
+        title: 'Заметка 2',
+        id: 2,
+        text: 'Text 2 scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting'
+    }
 });
 
 const defaultNotesState = {
-    notes: []
+    notes: [],
+    foundNote: {}
 };
 
 const notesReducer = (state:any, action:any) => {
@@ -43,10 +51,25 @@ const notesReducer = (state:any, action:any) => {
         const indexOfNote = notes.findIndex((note: { id: any; }) => note.id === action.id);
         notes[indexOfNote].title = action.title;
         notes[indexOfNote].text = action.text;
-        console.log(notes);
+        // console.log(notes);
 
         return {
             notes: notes
+        }
+    }
+    if(action.type === 'SEARCH') {
+        const foundNote = action.foundNote;
+        // console.log(foundNote);
+        return {
+            notes: state.notes,
+            foundNote:foundNote
+        }
+    }
+
+    if(action.type === 'REMOVE_FOUND') {
+        return {
+            notes: state.notes,
+            foundNote: undefined
         }
     }
   return defaultNotesState;
@@ -59,10 +82,14 @@ export const NotesProvider = (props:any) => {
         notes: noteItem[],
         createNote: any,
         deleteNote: any,
-        updateNote: any
+        updateNote: any,
+        searchNote: any,
+        foundNote: noteItem,
+        removeFoundNote: any
     };
 
     const notes:noteItem[] = notesState.notes;
+    const foundNote:noteItem = notesState.foundNote;
 
     const createNote = (note: noteItem):void => {
         dispatchNotesAction({type: 'CREATE', note: note });
@@ -76,11 +103,22 @@ export const NotesProvider = (props:any) => {
         dispatchNotesAction({type: 'UPDATE', id: id, title: title, text: text});
     }
 
+    const searchNote = (foundNote: noteItem) => {
+        dispatchNotesAction({type: 'SEARCH', foundNote: foundNote});
+    }
+
+    const removeFoundNote = () => {
+        dispatchNotesAction({type: 'REMOVE_FOUND'});
+    }
+
     const notesContext:NotesContext = {
         notes: notes,
         createNote: createNote,
         deleteNote: deleteNote,
-        updateNote: updateNote
+        updateNote: updateNote,
+        searchNote: searchNote,
+        foundNote: foundNote,
+        removeFoundNote: removeFoundNote
     }
 
     return <NotesContext.Provider value={notesContext}>
