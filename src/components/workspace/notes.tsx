@@ -7,7 +7,7 @@ const Notes: React.FC = (props) => {
     const notes = notesCtx.notes;
 
     return (<div>
-        {notes.map(note => <Note title={note.title} text={note.text}></Note>)}
+        {notes.map(note => <Note title={note.title} text={note.text} id={note.id}></Note>)}
     </div>);
 }
 

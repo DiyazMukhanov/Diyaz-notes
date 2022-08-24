@@ -15,7 +15,8 @@ const NotesContext = React.createContext({
         }
     ],
     createNote: (note: any) => {},
-    deleteNote: (id: number) => {}
+    deleteNote: (id: number) => {},
+    updateNote: (id: number, title: string, text: string) => {}
 });
 
 const defaultNotesState = {
@@ -28,7 +29,25 @@ const notesReducer = (state:any, action:any) => {
        return {
            notes: updatedNotes
        };
+    }
 
+    if(action.type === 'DELETE') {
+      const updatedNotes = state.notes.filter((note: { id: any; }) => note.id !== action.id);
+      return {
+          notes: updatedNotes
+      }
+    }
+    if(action.type === 'UPDATE') {
+        // const noteIndex = state.notes.findIndex((note: { id: any; }) => note.id === action.id);
+        const notes = state.notes;
+        const indexOfNote = notes.findIndex((note: { id: any; }) => note.id === action.id);
+        notes[indexOfNote].title = action.title;
+        notes[indexOfNote].text = action.text;
+        console.log(notes);
+
+        return {
+            notes: notes
+        }
     }
   return defaultNotesState;
 }
@@ -39,7 +58,8 @@ export const NotesProvider = (props:any) => {
     type NotesContext = {
         notes: noteItem[],
         createNote: any,
-        deleteNote: any
+        deleteNote: any,
+        updateNote: any
     };
 
     const notes:noteItem[] = notesState.notes;
@@ -52,10 +72,15 @@ export const NotesProvider = (props:any) => {
         dispatchNotesAction({type: 'DELETE', id: id});
     }
 
+    const updateNote = (id:number, title:string, text:string) => {
+        dispatchNotesAction({type: 'UPDATE', id: id, title: title, text: text});
+    }
+
     const notesContext:NotesContext = {
         notes: notes,
         createNote: createNote,
-        deleteNote: deleteNote
+        deleteNote: deleteNote,
+        updateNote: updateNote
     }
 
     return <NotesContext.Provider value={notesContext}>

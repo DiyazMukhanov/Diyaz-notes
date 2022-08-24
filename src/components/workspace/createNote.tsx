@@ -19,9 +19,9 @@ const CreateNote:React.FC = (props: any) => {
     const submitHandler = (event:any) => {
         event.preventDefault();
         // @ts-ignore
-        const titleInputEntered = titleRef.current.value;
+        let titleInputEntered = titleRef.current.value;
         // @ts-ignore
-        const textInputEntered = textRef.current.value;
+        let textInputEntered = textRef.current.value;
         const noteItem = {
             title: titleInputEntered,
             text: textInputEntered,
@@ -34,7 +34,11 @@ const CreateNote:React.FC = (props: any) => {
             id: Math.random()
         });
        notesCtx.createNote(noteItem);
-       console.log(notesCtx.notes);
+        // @ts-ignore
+        titleRef.current.value = '';
+        // @ts-ignore
+        textRef.current.value = '';
+
     }
 
     return <div className={styles.createNote}>
