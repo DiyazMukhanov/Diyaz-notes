@@ -35,7 +35,6 @@ const Note: React.FC<Props> = (props) => {
         {/* @ts-ignore */}<input id='title' onChange={updateHandler}/>
         <input id='text' onChange={updateHandler}/>
         <button onClick={removeNoteHandler}>Удалить заметку</button>
-        <button onClick={updateHandler}>Редактировать заметку</button>
     </div>)
 }
 

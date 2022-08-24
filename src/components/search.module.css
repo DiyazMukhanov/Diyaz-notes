@@ -7,9 +7,10 @@
 
 .search {
     /*height: 44px;*/
-    width: 723px;
+    width: 500px;
     display: flex;
-    border: solid red 1px;
+    border: solid lightblue 1px;
+    border-radius: 30px;
     padding-left: 20px;
 }
 

@@ -44,9 +44,9 @@ const CreateNote:React.FC = (props: any) => {
     return <div className={styles.createNote}>
 
         {/* @ts-ignore */}<form className={styles.form} onSubmit={submitHandler}>
-        {/* @ts-ignore */}<input onChange={event => setTitle(event.target.value)} ref={titleRef}/>
-        {/* @ts-ignore */}<input onChange={event => setText(event.target.value)}  ref={textRef}/>
-            <button>Добавить заметку</button>
+        {/* @ts-ignore */}<input onChange={event => setTitle(event.target.value)} ref={titleRef} placeholder='Введите Название'/>
+        {/* @ts-ignore */}<input onChange={event => setText(event.target.value)}  ref={textRef} placeholder='Введите Текст'/>
+            <button className={styles.button}>Добавить заметку</button>
         </form>
     </div>
 }
