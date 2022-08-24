@@ -1,0 +1,15 @@
+/*.createNote {*/
+/*    border: solid green 1px;*/
+/*}*/
+
+.form {
+    display: flex;
+    padding: 0;
+    border: solid grey 1px;
+    /*width: 600px;*/
+}
+
+.form input {
+    border: none;
+    width: 500px;
+}

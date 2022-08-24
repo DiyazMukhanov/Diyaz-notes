@@ -1,0 +1,5 @@
+.note {
+    border: solid orange 1px;
+    background: orange;
+    max-width: 300px;
+}

@@ -1,0 +1,18 @@
+.searchContainer {
+    /*border: solid green 1px;*/
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    /*height: 44px;*/
+    width: 723px;
+    display: flex;
+    border: solid red 1px;
+    padding-left: 20px;
+}
+
+.searchIcon {
+    height: 40px;
+}
