@@ -44,6 +44,7 @@ const CreateNote:React.FC = (props: any) => {
 
     const showAllNotesHandler = () => {
         notesCtx.removeFoundNote();
+        console.log(notesCtx.foundNote);
     }
 
     return <div className={styles.createNote}>
@@ -53,7 +54,9 @@ const CreateNote:React.FC = (props: any) => {
         {/* @ts-ignore */}<input onChange={event => setText(event.target.value)}  ref={textRef} placeholder='Введите Текст'/>
             <button className={styles.button}>Добавить заметку</button>
         </form>
+
         <button className={styles.button} onClick={showAllNotesHandler}>Показать все заметки</button>
+
     </div>
 }
 

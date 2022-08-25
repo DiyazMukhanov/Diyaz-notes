@@ -16,7 +16,6 @@ const Search: React.FC = (props) => {
 
         if(foundNote) {
             notesCtx.searchNote(foundNote);
-            console.log(notesCtx.foundNote);
         }
     }
 

@@ -1,20 +1,37 @@
 .note {
     /*border: solid orange 1px;*/
-    background: orange;
+    background: #b3ff66;
     max-width: 300px;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 20px 30px 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .note input {
     border-radius: 20px;
-    background: #ffff66;
+    border: none;
+    background: #b3ff66;
+    /*pointer-events: none;*/
+}
+
+.note input:focus {
+    outline: none !important;
 }
 
 .button {
     border-radius: 20px;
+    border: none;
+    height: 40px;
+    width: 150px;
     margin-top: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #1affff;
+    color: white;
 }
