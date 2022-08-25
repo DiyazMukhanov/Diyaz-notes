@@ -7,6 +7,7 @@ const Notes: React.FC = (props) => {
     const notesCtx = useContext(NotesContext);
     const notes = notesCtx.notes;
 
+
     return (<div className={styles.notesContainer}>
         {notesCtx.foundNote &&
             <Note title={notesCtx.foundNote.title} text={notesCtx.foundNote.text} id={notesCtx.foundNote.id} />}

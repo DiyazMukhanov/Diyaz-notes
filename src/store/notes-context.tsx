@@ -27,23 +27,27 @@ const NotesContext = React.createContext({
 });
 
 const defaultNotesState = {
-    notes: [],
-    foundNote: {}
+    notes: [{
+        title: 'Ваши заметки с вами',
+        id: 2,
+        text: 'Создавайте заметки на ходу. Они всегда вместе с вами'
+    }],
+    foundNote: undefined
 };
 
 const notesReducer = (state:any, action:any) => {
     if(action.type === 'CREATE') {
-       const updatedNotes = state.notes.concat(action.note);
-       return {
-           notes: updatedNotes
-       };
+        const updatedNotes = state.notes.concat(action.note);
+        return {
+            notes: updatedNotes
+        };
     }
 
     if(action.type === 'DELETE') {
-      const updatedNotes = state.notes.filter((note: { id: any; }) => note.id !== action.id);
-      return {
-          notes: updatedNotes
-      }
+        const updatedNotes = state.notes.filter((note: { id: any; }) => note.id !== action.id);
+        return {
+            notes: updatedNotes
+        }
     }
     if(action.type === 'UPDATE') {
         // const noteIndex = state.notes.findIndex((note: { id: any; }) => note.id === action.id);
@@ -72,7 +76,7 @@ const notesReducer = (state:any, action:any) => {
             foundNote: undefined
         }
     }
-  return defaultNotesState;
+    return defaultNotesState;
 }
 
 export const NotesProvider = (props:any) => {
