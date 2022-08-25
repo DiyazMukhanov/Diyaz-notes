@@ -50,12 +50,11 @@ const notesReducer = (state:any, action:any) => {
         }
     }
     if(action.type === 'UPDATE') {
-        // const noteIndex = state.notes.findIndex((note: { id: any; }) => note.id === action.id);
         const notes = state.notes;
         const indexOfNote = notes.findIndex((note: { id: any; }) => note.id === action.id);
         notes[indexOfNote].title = action.title;
         notes[indexOfNote].text = action.text;
-        // console.log(notes);
+
 
         return {
             notes: notes
@@ -63,7 +62,6 @@ const notesReducer = (state:any, action:any) => {
     }
     if(action.type === 'SEARCH') {
         const foundNote = action.foundNote;
-        // console.log(foundNote);
         return {
             notes: state.notes,
             foundNote:foundNote

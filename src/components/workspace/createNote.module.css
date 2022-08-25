@@ -12,8 +12,6 @@
     align-items: center;
     gap: 10px;
     padding: 0;
-    /*border: solid grey 1px;*/
-    /*width: 600px;*/
 }
 
 .form input {
@@ -24,6 +22,15 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.form input:focus {
+    outline: none !important;
+}
+
+.form input:hover {
+    background: #e6f7ff;
+}
+
+
 .button {
     width: 150px;
     height: 40px;
@@ -33,4 +40,8 @@
     border: none;
     background: #ccffcc;
     color: #8080ff;
+}
+
+.button:hover {
+    background: #80d7ff;
 }

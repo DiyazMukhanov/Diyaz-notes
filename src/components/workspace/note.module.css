@@ -1,5 +1,4 @@
 .note {
-    /*border: solid orange 1px;*/
     background: #b3ff66;
     max-width: 300px;
     border-radius: 10px;
@@ -15,7 +14,6 @@
     border-radius: 20px;
     border: none;
     background: #b3ff66;
-    /*pointer-events: none;*/
 }
 
 .note input:focus {
@@ -32,6 +30,6 @@
 }
 
 .button:hover {
-    background: #1affff;
+    background: #80d7ff;
     color: white;
 }

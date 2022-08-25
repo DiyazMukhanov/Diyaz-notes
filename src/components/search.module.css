@@ -1,5 +1,4 @@
 .searchContainer {
-    /*border: solid green 1px;*/
     padding-top: 5px;
     display: flex;
     justify-content: flex-end;
@@ -8,7 +7,6 @@
 }
 
 .search {
-    /*height: 44px;*/
     width: 500px;
     display: flex;
     border: solid rgba(0, 0, 0, 0.35) 1px;

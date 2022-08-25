@@ -8,7 +8,7 @@ const CreateNote:React.FC = (props: any) => {
         text: string,
         id: number
     }
-    const [showNotes, setShowNotes] = useState(false);
+
     const titleRef = useRef();
     const textRef = useRef();
 
