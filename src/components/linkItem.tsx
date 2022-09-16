@@ -1,11 +1,18 @@
 import styles from './linkItem.module.css';
+import {ListItem, ListItemButton, ListItemText} from "@mui/material";
 
 type Props = {
     item: string
 }
 
 const LinkItem: React.FC<Props> = (props) => {
-    return <div className={styles.item}><a>{props.item}</a></div>
+    return (
+        <ListItem>
+            <ListItemButton>
+            <ListItemText primary={props.item} />
+            </ListItemButton>
+
+        </ListItem>)
 }
 
 export default LinkItem;
