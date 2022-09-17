@@ -11,7 +11,7 @@ const Notes: React.FC = (props) => {
 
     return (
         // <Container maxWidth="sm" sx={{ mt: "50px"}}>
-            <Grid container spacing={2}>
+            <Grid container spacing={4} sx={{border: "solid red 1px"}}>
         {notesCtx.foundNote &&
             <Note title={notesCtx.foundNote.title} text={notesCtx.foundNote.text} id={notesCtx.foundNote.id} />}
         {!notesCtx.foundNote &&

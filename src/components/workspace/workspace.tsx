@@ -8,7 +8,10 @@ const WorkSpace: React.FC = (props) => {
     return (
         <div className={styles.workSpace}>
     <CreateNote></CreateNote>
-            <Container maxWidth="sm" sx={{ mt: "50px"}}>
+            <Container
+                // maxWidth="sm"
+                sx={{ mt: "50px"
+                }}>
         <Notes></Notes>
                 </Container>
     </div>);
