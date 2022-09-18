@@ -28,8 +28,8 @@
 
 .searchContainer {
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     /*border: solid red 1px;*/
-    margin-left: 50px;
-    width: 80%
+    /*margin-left: 50px;*/
+    /*width: auto;*/
 }

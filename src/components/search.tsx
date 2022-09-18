@@ -16,6 +16,7 @@ const Search: React.FC<Props> = ({toggleSide}) => {
     const searchHandler = () => {
         // @ts-ignore
         const enteredInput = inputRef.current.value;
+        // console.log(enteredInput);
 
         const foundNote:any = notesCtx.notes.find((note):any => note.title === enteredInput);
 
@@ -26,7 +27,7 @@ const Search: React.FC<Props> = ({toggleSide}) => {
 
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" >
             <Toolbar
             sx={{background: "white", color: "#5f6368"}}
             >
@@ -51,11 +52,12 @@ const Search: React.FC<Props> = ({toggleSide}) => {
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
                 <InputBase
-                    sx={{ width: "50%" }}
+                    inputRef={inputRef}
+                    sx={{ width: "100%" }}
                     placeholder="Найти заметку"
                     inputProps={{ 'aria-label': 'search google maps' }}
                 />
-                <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+                <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchHandler}>
                     <SearchIcon />
                 </IconButton>
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
