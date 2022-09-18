@@ -2,6 +2,7 @@ import styles from './note.module.css';
 import {useContext, useEffect, useState} from "react";
 import NotesContext from "../../store/notes-context";
 import {Grid, Paper, TextField, Typography} from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Props = {
     title: string,
@@ -36,16 +37,26 @@ const Note: React.FC<Props> = (props) => {
         notesCtx.updateNote(id, updatedTitle, updatedText);
     }, [updatedTitle, updatedText])
 
+    const matchExtraSmall = useMediaQuery('(min-width: 0)');
+    const matchesSmall = useMediaQuery('(min-width: 600px)');
+    const matchesMedium = useMediaQuery('(min-width: 900px)');
+    const matchesLarge = useMediaQuery('(min-width: 1200px)');
+
+
     return (
         // <div className={styles.note}>
-        <Grid item xs={12} md={3} lg={3}  sx={{ width: "100px"}}>
+        <Grid item xs={12} md={4} lg={4}  sx={{ width: "100px"}}>
             <Paper
                 elevation={3}
                 sx={
                 {
                     pl:"20px",
-                    width:"80%",
-                    background: "#ccff90",
+                    // ml: "50px",
+                    // ...(matchExtraSmall && {
+                    //     ml: "50px"
+                    // }),
+                    width:"300px",
+                    background: "#f2f4f5",
                     minHeight: "300px",
                     wordWrap:"break-word",
                     pr:"20px"

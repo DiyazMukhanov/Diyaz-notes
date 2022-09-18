@@ -20,6 +20,16 @@
     width: 500px;
     height: 30px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-left: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .form input {
+        width: 40vh;
+        padding-left: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .form input:focus {
