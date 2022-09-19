@@ -15,25 +15,18 @@ const Search: React.FC<Props> = ({toggleSide}) => {
     const inputRef = useRef();
     const notesCtx = useContext(NotesContext);
 
-    // console.log(notesCtx.foundNote);
-
     const searchHandler = () => {
         console.log(inputValue)
 
         // @ts-ignore
         let enteredInput = inputRef.current.value;
-        // console.log(enteredInput);
 
         const foundNote:any = notesCtx.notes.find((note):any => note.title === enteredInput);
-        // console.log('enteredInput: '+ enteredInput);
-        // console.log(notesCtx.notes);
-        // console.log(foundNote);
 
         if(foundNote) {
             notesCtx.searchNote(foundNote);
         }
         setInputValue('');
-        console.log(notesCtx.foundNote);
     }
 
 
@@ -75,12 +68,7 @@ const Search: React.FC<Props> = ({toggleSide}) => {
                 </IconButton>
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 </div>
-                {/*<TextField variant="filled" fullWidth={true} color="secondary" size="small"/>*/}
             </Toolbar>
-        {/*<div className={styles.search}>*/}
-        {/*    /!* @ts-ignore *!/<img className={styles.searchIcon} src={search} alt='search' onClick={searchHandler}/>*/}
-        {/*    <input className={styles.input} ref={inputRef}/>*/}
-        {/*</div>*/}
     </AppBar>);
 }
 

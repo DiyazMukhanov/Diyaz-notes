@@ -55,7 +55,6 @@ const notesReducer = (state:any, action:any) => {
         notes[indexOfNote].title = action.title;
         notes[indexOfNote].text = action.text;
 
-
         return {
             notes: notes
         }

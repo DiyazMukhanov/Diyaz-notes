@@ -4,36 +4,4 @@
     flex-direction: column;
     align-items: center;
     padding-top: 30px;
-    /*border: solid red 1px;*/
 }
-
-/*.notesContainer {*/
-/*    !*border: solid red 1px;*!*/
-/*    width: 100%;*/
-/*    margin-top: 20px;*/
-/*}*/
-
-/*@media only screen and (max-width: 400px) {*/
-/*    .notesContainer {*/
-/*        margin-right: 25px;*/
-/*    }*/
-/*}*/
-
-
-/*.notesContainer {*/
-/*    width: 100%;*/
-/*    margin-top: 20px;*/
-/*    border: solid green 1px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.container {*/
-/*    width: 100%;*/
-/*    border: solid red 1px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    padding-left: 20px;*/
-/*    padding-right: 20px;*/
-/*}*/

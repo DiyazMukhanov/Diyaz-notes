@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/side/sidebar";
 import Search from "./components/search";
 import WorkSpace from "./components/workspace/workspace";
 import {NotesProvider} from "./store/notes-context";

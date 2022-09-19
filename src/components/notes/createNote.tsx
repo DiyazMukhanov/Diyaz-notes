@@ -18,7 +18,7 @@ const CreateNote:React.FC = (props: any) => {
     const [text, setText] = useState<string>('');
     const [note, setNote] = useState<noteData| null>(null);
 
-    const submitHandler = (event:any) => {
+    const createHandler = (event:any) => {
         event.preventDefault();
         // @ts-ignore
         let titleInputEntered = titleRef.current.value;
@@ -50,10 +50,10 @@ const CreateNote:React.FC = (props: any) => {
 
     return <div className={styles.createNote}>
 
-        {/* @ts-ignore */}<form className={styles.form} onSubmit={submitHandler}>
+        {/* @ts-ignore */}<form className={styles.form}>
         {/* @ts-ignore */}<input onChange={event => setTitle(event.target.value)} ref={titleRef} placeholder='Введите Название'/>
         {/* @ts-ignore */}<input onChange={event => setText(event.target.value)}  ref={textRef} placeholder='Введите Текст'/>
-            <Button>Добавить заметку</Button>
+            <Button onClick={createHandler}>Добавить заметку</Button>
         </form>
 
         <Button onClick={showAllNotesHandler}>Показать все заметки</Button>

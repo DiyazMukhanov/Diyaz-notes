@@ -1,7 +1,6 @@
-import styles from './note.module.css';
 import {useContext, useEffect, useState} from "react";
 import NotesContext from "../../store/notes-context";
-import {Grid, Paper, TextField, Typography, Button} from "@mui/material";
+import { Paper, TextField, Typography, Button} from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Props = {
@@ -12,7 +11,6 @@ type Props = {
 const Note: React.FC<Props> = (props) => {
     const [updatedTitle, setUpdatedTitle] = useState(props.title);
     const [updatedText, setUpdatedText] = useState(props.text);
-    // console.log(updatedTitle, updatedText)
     const notesCtx = useContext(NotesContext);
     const id = props.id;
     const removeNoteHandler = () => {
@@ -30,17 +28,10 @@ const Note: React.FC<Props> = (props) => {
         }
     }
 
-    //не должна сработать если мы нажали на сёрч
     useEffect(() => {
         !notesCtx.foundNote &&
         notesCtx.updateNote(id, updatedTitle, updatedText);
     }, [updatedTitle, updatedText])
-
-    const matchExtraSmall = useMediaQuery('(min-width: 0)');
-    const matchesSmall = useMediaQuery('(min-width: 600px)');
-    const matchesMedium = useMediaQuery('(min-width: 900px)');
-    const matchesLarge = useMediaQuery('(min-width: 1200px)');
-
 
     return (
         // <div className={styles.note}>
@@ -50,10 +41,6 @@ const Note: React.FC<Props> = (props) => {
                 sx={
                 {
                     pl:"20px",
-                    // ml: "50px",
-                    // ...(matchExtraSmall && {
-                    //     ml: "50px"
-                    // }),
                     width:"300px",
                     background: "#f2f4f5",
                     minHeight: "300px",

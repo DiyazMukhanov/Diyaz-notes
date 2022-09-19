@@ -1,4 +1,3 @@
-import styles from './linkItem.module.css';
 import {ListItem, ListItemButton, ListItemText} from "@mui/material";
 
 type Props = {
@@ -11,7 +10,6 @@ const LinkItem: React.FC<Props> = (props) => {
             <ListItemButton>
             <ListItemText primary={props.item} />
             </ListItemButton>
-
         </ListItem>)
 }
 
