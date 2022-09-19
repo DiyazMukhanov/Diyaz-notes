@@ -1,6 +1,7 @@
 import styles from './createNote.module.css';
 import { useContext, useState, useRef } from "react";
 import NotesContext from "../../store/notes-context";
+import Button from '@mui/material/Button';
 
 const CreateNote:React.FC = (props: any) => {
     interface noteData {
@@ -52,10 +53,10 @@ const CreateNote:React.FC = (props: any) => {
         {/* @ts-ignore */}<form className={styles.form} onSubmit={submitHandler}>
         {/* @ts-ignore */}<input onChange={event => setTitle(event.target.value)} ref={titleRef} placeholder='Введите Название'/>
         {/* @ts-ignore */}<input onChange={event => setText(event.target.value)}  ref={textRef} placeholder='Введите Текст'/>
-            <button className={styles.button}>Добавить заметку</button>
+            <Button>Добавить заметку</Button>
         </form>
 
-        <button className={styles.button} onClick={showAllNotesHandler}>Показать все заметки</button>
+        <Button onClick={showAllNotesHandler}>Показать все заметки</Button>
 
     </div>
 }

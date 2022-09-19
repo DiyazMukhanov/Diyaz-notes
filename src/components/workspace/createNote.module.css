@@ -41,17 +41,3 @@
 }
 
 
-.button {
-    width: 150px;
-    height: 40px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 15px;
-    border: none;
-    background: #ccffcc;
-    color: #8080ff;
-}
-
-.button:hover {
-    background: #80d7ff;
-}

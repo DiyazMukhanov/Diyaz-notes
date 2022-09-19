@@ -1,7 +1,7 @@
 import styles from './note.module.css';
 import {useContext, useEffect, useState} from "react";
 import NotesContext from "../../store/notes-context";
-import {Grid, Paper, TextField, Typography} from "@mui/material";
+import {Grid, Paper, TextField, Typography, Button} from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 type Props = {
@@ -28,12 +28,11 @@ const Note: React.FC<Props> = (props) => {
             setUpdatedText(event.target.value);
             notesCtx.updateNote(id, updatedTitle, updatedText);
         }
-
-       // notesCtx.updateNote(id, updatedTitle, updatedText);
-        // console.log(notesCtx.notes)
     }
 
+    //не должна сработать если мы нажали на сёрч
     useEffect(() => {
+        !notesCtx.foundNote &&
         notesCtx.updateNote(id, updatedTitle, updatedText);
     }, [updatedTitle, updatedText])
 
@@ -45,7 +44,7 @@ const Note: React.FC<Props> = (props) => {
 
     return (
         // <div className={styles.note}>
-        <Grid item xs={12} md={4} lg={4}  sx={{ width: "100px"}}>
+        <div>
             <Paper
                 elevation={3}
                 sx={
@@ -64,7 +63,7 @@ const Note: React.FC<Props> = (props) => {
             }>
        <Typography variant="h6">{props.title}</Typography>
         {/* @ts-ignore */}<Typography sx={{mb:"20px"}}>{props.text}</Typography>
-        {/* @ts-ignore */}<TextField
+        {/* @ts-ignore */}{!notesCtx.foundNote && (<TextField
                 variant="standard"
                 id='title'
                 onChange={updateHandler}
@@ -73,8 +72,8 @@ const Note: React.FC<Props> = (props) => {
                 InputProps={{
                     disableUnderline: true
                 }}
-            />
-        <TextField
+            />)}
+                {!notesCtx.foundNote && (<TextField
             variant="standard"
             id='text'
             onChange={updateHandler}
@@ -83,10 +82,11 @@ const Note: React.FC<Props> = (props) => {
             InputProps={{
                 disableUnderline: true
             }}
-        />
-        <button onClick={removeNoteHandler} className={styles.button}>Удалить заметку</button>
+        />)}
+        <Button onClick={removeNoteHandler}>Удалить заметку</Button>
             </Paper>
-       </Grid>
+        </div>
+
 )
 }
 

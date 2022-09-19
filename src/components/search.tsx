@@ -1,6 +1,6 @@
 import search from '../assets/search.png';
 import styles from './search.module.css';
-import {useContext, useRef} from "react";
+import {useContext, useRef, useState} from "react";
 import NotesContext from "../store/notes-context";
 import {AppBar, Divider, IconButton, InputBase, TextField, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,18 +11,29 @@ type Props = {
 }
 
 const Search: React.FC<Props> = ({toggleSide}) => {
+    const [inputValue, setInputValue] = useState('');
     const inputRef = useRef();
     const notesCtx = useContext(NotesContext);
+
+    // console.log(notesCtx.foundNote);
+
     const searchHandler = () => {
+        console.log(inputValue)
+
         // @ts-ignore
-        const enteredInput = inputRef.current.value;
+        let enteredInput = inputRef.current.value;
         // console.log(enteredInput);
 
         const foundNote:any = notesCtx.notes.find((note):any => note.title === enteredInput);
+        // console.log('enteredInput: '+ enteredInput);
+        // console.log(notesCtx.notes);
+        // console.log(foundNote);
 
         if(foundNote) {
             notesCtx.searchNote(foundNote);
         }
+        setInputValue('');
+        console.log(notesCtx.foundNote);
     }
 
 
@@ -52,6 +63,8 @@ const Search: React.FC<Props> = ({toggleSide}) => {
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
 
                 <InputBase
+                    onChange={event => setInputValue(event.target.value)}
+                    value={inputValue}
                     inputRef={inputRef}
                     sx={{ width: "100%" }}
                     placeholder="Найти заметку"

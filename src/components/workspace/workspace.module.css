@@ -4,19 +4,20 @@
     flex-direction: column;
     align-items: center;
     padding-top: 30px;
-}
-
-.notesContainer {
     /*border: solid red 1px;*/
-    width: 100%;
-    margin-top: 20px;
 }
 
-@media only screen and (max-width: 400px) {
-    .notesContainer {
-        margin-right: 25px;
-    }
-}
+/*.notesContainer {*/
+/*    !*border: solid red 1px;*!*/
+/*    width: 100%;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*@media only screen and (max-width: 400px) {*/
+/*    .notesContainer {*/
+/*        margin-right: 25px;*/
+/*    }*/
+/*}*/
 
 
 /*.notesContainer {*/

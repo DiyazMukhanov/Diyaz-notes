@@ -10,14 +10,14 @@ const Notes: React.FC = (props) => {
 
 
     return (
-        // <Container maxWidth="sm" sx={{ mt: "50px"}}>
-            <Grid container spacing={2} sx={{padding:"20px"}}>
+
+            <div className={styles.notesContainer}>
         {notesCtx.foundNote &&
             <Note title={notesCtx.foundNote.title} text={notesCtx.foundNote.text} id={notesCtx.foundNote.id} />}
         {!notesCtx.foundNote &&
              notes.map(note => <Note title={note.title} text={note.text} id={note.id}/>)}
-            </Grid>
-        // </Container>
+            </div>
+
 );
 }
 
